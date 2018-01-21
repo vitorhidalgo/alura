@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Document</title>
+	<style>
+		.flexContainer{
+			/*width: 800px;*/
+			display: flex;
+		}
+
+		.flexItem {
+			width: 200px;
+		}
+
+		.flexItem:first-child {
+			flex-shrink: 2;
+		}
+	</style>
+</head>
+<body>
+	<main class="flexContainer">        
+		<div class="flexItem firstRow">1</div>
+		<div class="flexItem firstRow">2</div>
+		<div class="flexItem firstRow">3</div>
+		<div class="flexItem firstRow">4</div>
+	</main>
+</body>
+</html>

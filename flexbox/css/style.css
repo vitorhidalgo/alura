@@ -1,4 +1,5 @@
 body {
+	// width: 100%;
 	background-color: #F2F5F7;
 	font-family: 'Open Sans',Arial,sans-serif;
 }
@@ -209,7 +210,7 @@ body {
 	margin-bottom: 10px;
 }
 
-/* @media(min-width: 769px) {
+ @media(min-width: 769px) {
 
 	.container {
 		width: 85%;	
@@ -282,6 +283,6 @@ body {
 		margin-left: 1.5em;
 	}
 
-} */
+} 
 
 
