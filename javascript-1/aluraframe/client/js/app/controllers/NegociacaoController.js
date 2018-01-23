@@ -12,19 +12,15 @@ class NegociacaoController
 	adiciona(event)
 	{
 		event.preventDefault();
-
-		let data = new Date
-		(
-			...this._inputData.value.split('-').map((item, index) => item - index % 2 )
-		);
-
+		
 		let negociacao = new Negociacao
 		(
-			data,
+			DateHelper.textoParaData(this._inputData.value),
 			this._inputQuantidade.value,
 			this._inputValor.value
 		);
 
 		console.log(negociacao);
+		console.log(DateHelper.dataParaTexto(negociacao.data));
 	}
 }
