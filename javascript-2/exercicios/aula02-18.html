@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        class Funcionario
+        {
+            constructor(email)
+            {
+                this._email = email;
+            }
+
+            get email()
+            {
+                return this._email;
+            }
+
+            set email(email)
+            {
+                this._email = email;
+            }
+        }
+
+        let funcionario = new Proxy
+        (
+            new Funcionario('vitor.hidalgo@gmail.com'),
+            {
+                set(target, prop, value, receiver)
+                {
+                    console.log(`O valor inícial é: ${target[prop]} e o novo valor é: ${value}, propriedade alterada ${prop}`);
+                    return Reflect.set(target, prop, value, receiver);
+                }
+            }
+        );
+
+        funcionario.email = 'vitor_hidalgo@hotmail.com';
+    </script>
+</body>
+</html>
