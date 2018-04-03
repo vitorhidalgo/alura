@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <p class="info">Era uma vez...</p>
+    <script>
+        class Aviao
+        {
+            constructor(nome)
+            {
+                this._nome = nome;
+            }
+
+            voa()
+            {
+                alert(`${this._nome} está voando`);
+            }
+
+            ligaMotor()
+            {
+                console.log('liga o motor');
+            }
+
+            fechaPortas()
+            {
+                console.log('Portas sendo fechadas');
+            }
+        }
+
+        class Passarinho
+        {
+            constructor(nome)
+            {
+                this._nome = nome;
+            }
+
+            voa()
+            {
+                Reflect.apply(Aviao.prototype.voa, this, []);
+            }
+        }
+    </script>
+</body>
+</html>
