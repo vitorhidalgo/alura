@@ -40,6 +40,14 @@ class NegociacaoController
 						}
 					)
 				}
+			)
+			.catch
+			(
+				erro => 
+				{
+					console.log(erro);
+					this._mensagem.texto = erro;
+				}
 			);
 	};
 	
@@ -72,14 +80,15 @@ class NegociacaoController
 	{
 		let service = new NegociacaoService();
         
-        service.obterNegociacoes().then
+		service.obterNegociacoes()
+		.then
         (
 			negociacoes => 
 			{
 				negociacoes.forEach
 				(
 					negociacao => this._listaNegociacoes.adiciona(negociacao)
-					);
+				);
 				this._mensagem.texto = 'Negociações do período importadas com sucesso';
 			}
 		)
@@ -88,9 +97,18 @@ class NegociacaoController
 
 	apaga()
 	{
-		this._listaNegociacoes.esvazia();
-		
-		this._mensagem.texto = 'Negociações deletada com sucesso';
+		ConnectionFactory
+			.getConnection()
+			.then(connection => new NegociacaoDao(connection))
+			.then(dao => dao.apagaTodos())
+			.then
+			(
+				mensagem => 
+				{
+					this._mensagem.texto = mensagem;
+					this._listaNegociacoes.esvazia();
+				}
+			);
 	}
 
 	_criarNegociacao()

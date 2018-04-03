@@ -63,7 +63,7 @@ var ConnectionFactory =
 							p_connection.deleteObjectStore(store);
 						}
 
-						p_connection.createObjectStore( store, { autoincrement : true } );
+						p_connection.createObjectStore( store, { autoIncrement : true } );
 					}
 				);
 			}
