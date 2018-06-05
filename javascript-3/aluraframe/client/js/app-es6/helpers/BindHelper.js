@@ -1,4 +1,6 @@
-class BindHelper
+import {ProxyFactory} from '../services/ProxyFactory';
+
+export class BindHelper
 {
     constructor(model, view, ...props)
     {
